@@ -1,6 +1,18 @@
 # Projeto - Inf08
 
-### Membros do Grupo
+`Tecnologia da Informação- Grau Técnico`
+
+`Linguagem de Programação para Desktop`
+
+`3° Semestre/2026`
+
+`Turma: INF08-M`
+
+### Resumo
+
+...
+
+### Integrantes
 
 - Angelica Cristina Pereira de Assis
 - Carla Rodrigues Castelo
@@ -12,10 +24,18 @@
 - Kaique Lopes da Silva
 - Livian Berbe dos Reis
 
-#### Professor: Emmanuel Vinicius Martins
-#### Turma: INF08 - M
+## Orientador
+* Emmanuel Vinicius Martins
 
----
+# Documentação
 
-### Resumo
+<ol>
+  <li><a herf="Documentação.md/1-Objetivo.md"> Documentação de Objetivos</a></li>
+</ol>
+
+
+
+
+
+
 
