@@ -23,6 +23,7 @@
 - Mateus Vitor Augusto dos Santos
 - Kaique Lopes da Silva
 - Livian Berbe dos Reis
+- Kauan Gonçalves De Carvalho Santos
 
 ## Orientador
 * Emmanuel Vinicius Martins
