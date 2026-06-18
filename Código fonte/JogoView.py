@@ -165,6 +165,8 @@ class TelaJogo(ctk.CTkFrame):
         self.jogadores = model.jogadores
 
         self.controller = controller
+
+        self.rodada = 1
         
         # CTkFrame simulando o Labelframe (Cards modernos não usam texto cortando a borda)
         frame_jogo = ctk.CTkFrame(self,
@@ -190,6 +192,16 @@ class TelaJogo(ctk.CTkFrame):
         self.label_perguntas.place(relx=0.02,rely=0.05,relwidth=0.96,relheight=0.7)
         self.label_perguntas.configure(text=self.pergunta)
 
+        self.label_rodada = ctk.CTkLabel(
+                                        self.label_perguntas,
+                                        text=f'Estamos na rodada {self.rodada}',
+                                        font=('Cinzel', 14, 'bold'),
+                                        text_color="#000000",
+                                        fg_color='#ffffff',
+                                        corner_radius=30
+                                         )
+        self.label_rodada.place(relx=0.38,rely=0.01)
+
         self.label_vez_jogador = ctk.CTkLabel(self.label_perguntas,
                                         text=f'È as vez de {ct.jogador_atual()}',
                                         font=('Cinzel', 14, 'bold'),
@@ -198,7 +210,7 @@ class TelaJogo(ctk.CTkFrame):
                                         corner_radius=30
                                          )
         
-        self.label_vez_jogador.place(relx=0.45,rely=0.1)
+        self.label_vez_jogador.place(relx=0.43,rely=0.11)
         
         self.ent_justificativa = ctk.CTkEntry(
                 frame_jogo,
@@ -265,9 +277,9 @@ class TelaJogo(ctk.CTkFrame):
                         novo_jogador = turno['jogador']
 
                         self.label_perguntas.configure(text=nova_pergunta)
-
+                        self.rodada = model.rodada_atual
                         self.label_vez_jogador.configure(text=f'È a vez do {novo_jogador}')
-
+                        self.label_rodada.configure(text=f'Estamos na rodada {self.rodada}')
                         self.ent_justificativa.delete(0,'end')
                         self.ent_alvo.delete(0,'end')
                 else:
@@ -278,6 +290,12 @@ class TelaJogo(ctk.CTkFrame):
                         self.controller.mostrar_frame(TelaFim)
 
                         self.ent_justificativa.delete(0,'end')
+
+                        self.ent_alvo.delete(0,'end')
+
+                        self.rodada = 1
+                        
+                        self.label_rodada.configure(text=f'Estamos na rodada {self.rodada}')
                         
 class TelaFim(ctk.CTkFrame):
                         # função de inicialização
