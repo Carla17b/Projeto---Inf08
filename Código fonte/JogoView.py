@@ -4,6 +4,19 @@ import customtkinter as ctk
 import JogoController as ct
 import JogoModel as model
 from PIL import Image
+import os
+import sys
+
+def caminho_recurso(caminho_relativo):
+    """ Retorna o caminho absoluto para o recurso, funcionando tanto em desenvolvimento quanto no executável. """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, caminho_relativo)
+
+ctk.DrawEngine.preferred_drawing_method = "circle_shapes"
 
 # Configuração global de aparência do CustomTkinter
 ctk.set_appearance_mode("Light")  # Força o modo claro, já que o tema original é light
@@ -210,7 +223,7 @@ class TelaJogo(ctk.CTkFrame):
                                         corner_radius=30
                                          )
         
-        self.label_vez_jogador.place(relx=0.43,rely=0.11)
+        self.label_vez_jogador.place(relx=0.42,rely=0.11)
         
         self.ent_justificativa = ctk.CTkEntry(
                 frame_jogo,
@@ -301,7 +314,7 @@ class TelaFim(ctk.CTkFrame):
                         # função de inicialização
         def __init__(self, parent, controller):
                 super().__init__(parent, fg_color="transparent")
-                self.imagem = Image.open("dark_crown.png")
+                self.imagem = Image.open(caminho_recurso("dark_crown.png"))
                 
                 self.controller = controller
 
@@ -348,7 +361,7 @@ class TelaFim(ctk.CTkFrame):
                         corner_radius = 30,
                         command=self.reiniciar_jogo
                         )
-                self.botao_reiniciar.place(relx=0.4,rely=0.9,relwidth=0.2,relheight=0.1)
+                self.botao_reiniciar.place(relx=0.4,rely=0.89,relwidth=0.2,relheight=0.1)
 	
         def atualizar_resultado(self):
 
